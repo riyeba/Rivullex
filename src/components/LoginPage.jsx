@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const [userType, setUserType] = useState('company'); // 'company' or 'general'
+  const [userType, setUserType] = useState('company'); // 'company' or 'general's
   const [showSignUp, setShowSignUp] = useState(false);
 
   const handleSubmit = (e) => {
@@ -232,11 +233,12 @@ const LoginPage = () => {
               <div className="w-full border-t border-gray-300"></div>
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="px-2 bg-gray-100 text-gray-500">New to FloodWatch?</span>
+              <span className="px-2 bg-gray-100 text-gray-500">New to Rivulex?</span>
             </div>
           </div>
 
           {/* Sign Up Link */}
+          <Link to="/signnup">
           <div className="text-center">
             <button 
               type="button"
@@ -246,6 +248,7 @@ const LoginPage = () => {
               Create new account
             </button>
           </div>
+          </Link>
 
           {/* Demo Access for Testing */}
           <div className="mt-3 sm:mt-4 p-2.5 sm:p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
