@@ -162,7 +162,7 @@ const SignUpForm = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-3 sm:p-4 md:p-6 lg:p-8">
-      {/* Main Container - Responsive width and spacing */}
+      {/* Main Container - Responsive width matching safety routing */}
       <div className="w-full max-w-xs xs:max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl bg-white rounded-2xl shadow-xl p-4 sm:p-6 md:p-8 lg:p-10">
         
         {/* Header */}
@@ -224,7 +224,7 @@ const SignUpForm = () => {
           </div>
         </div>
 
-        {/* Access Benefits Card  */}
+        {/* Access Benefits Card */}
         <div className={`${
           accessType === 'company' 
             ? 'bg-blue-50 border-blue-200 text-blue-800' 
@@ -259,10 +259,10 @@ const SignUpForm = () => {
           </div>
         )}
 
-        {/* Form */}
-        <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+        {/* Form Fields */}
+        <div className="space-y-4 sm:space-y-6">
           
-          {/* Basic Fields  */}
+          {/* Basic Fields */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             {basicFields.map((field) => (
               <div key={field.name} className={field.name === 'country' || field.name === 'stateOfResidence' ? 'md:col-span-1' : ''}>
@@ -306,7 +306,7 @@ const SignUpForm = () => {
             </select>
           </div>
 
-          {/* Email Field  */}
+          {/* Email Field */}
           <div>
             <label className="block text-sm sm:text-base font-medium text-gray-700 mb-2">
               {accessType === 'company' ? 'Company Email' : 'Personal Email'}
@@ -357,6 +357,7 @@ const SignUpForm = () => {
           {/* Submit Button - Responsive sizing */}
           <button
             type="submit"
+            onClick={handleSubmit}
             disabled={loading || !isFormValid}
             className={`w-full font-semibold py-3 sm:py-4 md:py-5 px-4 sm:px-6 rounded-lg sm:rounded-xl transition-all duration-200 text-sm sm:text-base md:text-lg focus:outline-none focus:ring-4 focus:ring-offset-2 disabled:cursor-not-allowed transform hover:scale-[1.02] active:scale-[0.98] ${
               accessType === 'company'
@@ -374,7 +375,7 @@ const SignUpForm = () => {
               `Create ${currentAccess.type}`
             )}
           </button>
-        </form>
+        </div>
       </div>
     </div>
   );
